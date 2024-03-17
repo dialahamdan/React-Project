@@ -1,0 +1,10 @@
+.loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lable{
+    color: #8B008B;
+    font-style: italic;
+}

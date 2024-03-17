@@ -9,6 +9,8 @@ import Root from './Routes/Root';
 import Product from './Pages/Product';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const router = createBrowserRouter([
@@ -53,7 +55,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      
+      <ToastContainer />
     </>
   );
 };
