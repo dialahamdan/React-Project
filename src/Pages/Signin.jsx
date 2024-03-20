@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./signup.css";
 import axios from "axios";
 import { object, string } from "yup";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/User";
 function Signin() {
+  const {setUserToken} = useContext (UserContext)
+  const navigate =useNavigate();
   const [user, setUser] = useState({
     
     email: "",
@@ -55,6 +59,12 @@ function Signin() {
             progress: undefined,
             theme: "light",
           });
+        
+          localStorage.setItem('userToken',data.token)
+          setUserToken(data.token);
+          navigate('/')
+         
+          
         }
       } catch (error) {
         
@@ -121,11 +131,11 @@ function Signin() {
        
 
           <button
-            className="button btn btn-outline-success"
-            disabled={loader ? "disabled" : null}
+            className=" signBtn"
+            disabled={loader?"disabled":null}
             type="submit"
           >
-            {loader ? "sign in" : "wait"}
+            {!loader ? "sign in" : "wait..."}
           </button>
         </form>
       </div>

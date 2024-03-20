@@ -13,20 +13,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-left: 480px;
+    /* margin-top: 50px;
+    margin-left: 480px; */
     border-radius: 10px;
-    border: 2px solid rgb(136, 66, 202);
+    border: 2px solid  rgb(228, 109, 164);
     padding-top: 30px;
     padding-bottom: 30px;
     gap: 20px;
+    position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .title{
     font-weight: 800;
 
 }
 .label{
-    color: rgb(136, 66, 202);
+    color:  rgb(240, 80, 154);
     
     }
 .form-item{
@@ -38,9 +42,16 @@
         color: white;
        padding: 7px 50px ;
        border-radius: 10px;
-        border: 2px solid rgb(136, 66, 202);
+        border: 2px solid  rgb(228, 109, 164);
         background-color: rgb(179, 119, 236);
     }
     .image{
         margin-left: 90px;
     }
+   .signBtn{
+    border: 3px solid rgb(240, 80, 164);
+    background-color: rgb(248, 175, 209);
+    border-radius: 3px;
+    padding: 2px 10px;
+    margin-top: 15px;
+   }

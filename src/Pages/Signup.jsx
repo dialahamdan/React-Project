@@ -3,7 +3,10 @@ import "./signup.css";
 import axios from "axios";
 import { object, string } from "yup";
 import { toast } from "react-toastify";
+import'./Signin'
+import { useNavigate } from "react-router-dom";
 function Signup() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     userName: "",
     email: "",
@@ -46,7 +49,9 @@ function Signup() {
           password: "",
           image: "",
         });
-        if (data.message == "success") {
+       
+       
+       if (data.message == "success") {
           toast.success("Account Created Successfully", {
             position: "top-right",
             autoClose: 2000,
@@ -57,10 +62,12 @@ function Signup() {
             progress: undefined,
             theme: "light",
           });
+          navigate('/signin')
         }
       } catch (error) {
-        if (error.response.status === 409) {
-          toast.error("Please Check Your Data", {
+       
+       
+          toast.error(error.response.data.message, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -70,7 +77,8 @@ function Signup() {
             progress: undefined,
             theme: "light",
           });
-        }
+          
+        
       } finally {
         setLoader(false);
       }
@@ -98,7 +106,8 @@ function Signup() {
     <>
       {errors.length > 0 ? errors.map((error) => <p>{error}</p>) : ""}
 
-      <div className="register">
+      
+      <div className="register ">
         <h2 className="label title">Sign Up </h2>
 
         <form className="form" onSubmit={handleForm}>
@@ -135,14 +144,15 @@ function Signup() {
           />
 
           <button
-            className="button btn btn-outline-success"
-            disabled={loader ? "disabled" : null}
+            className=" signBtn"
+            disabled={loader?"disabled":null }
             type="submit"
           >
-            {loader ? "sign up" : "wait"}
+            {!loader ? "sign up" : "wait..."}
           </button>
         </form>
       </div>
+      
     </>
   );
 }

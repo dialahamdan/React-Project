@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {Navigation} from 'swiper/modules';
 import Loader from './Loader';
-
+import {Link} from 'react-router-dom'
 function Categories() {
   const[categories,setCategories]=useState([]);
   const[loader,setLoader]=useState(true);
@@ -48,9 +48,10 @@ function Categories() {
        {
        categories.map (category =>
         <SwiperSlide>
-           <div className='categories' key={category.id}>
-           <img  src={category.image.secure_url}/>   
-      </div>
+          <Link to={`/categories/${category._id}`}>
+          <div className='categories' key={category.id}>
+           <img  src={category.image.secure_url}/>  
+           </div></Link>
         </SwiperSlide>
 )}   ...
     </Swiper>

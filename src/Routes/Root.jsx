@@ -5,8 +5,11 @@ import {Outlet} from 'react-router-dom'
 function Root() {
   return (
     <>
-    <Navbar/>
+    <div className='container'>
+    <Navbar />
     <Outlet/>
+    </div>
+    
     </>
   )
 }

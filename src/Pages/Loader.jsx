@@ -1,6 +1,5 @@
 import React from 'react'
 import"./Loader.css"
-<Loader className="css"></Loader>
 import { ProgressBar} from 'react-loader-spinner'
 function Loader() {
   return (<>
@@ -10,9 +9,9 @@ function Loader() {
         visible={true}
         height="80"
         width="80"
-        barColor='#DDA0DD'
-        borderColor='#8B008B'
-        color="#4fa94d"
+        barColor='#f5a5da'
+        borderColor='#e924d8'
+        color="#e924d8"
         ariaLabel="progress-bar-loading"
         wrapperStyle={{}}
         wrapperClass=""

@@ -6,33 +6,42 @@ import Cart from './Pages/Cart';
 import Signin from './Pages/Signin';
 import Signup from './Pages/Signup';
 import Root from './Routes/Root';
-import Product from './Pages/Product';
+import Products from './Pages/Products';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
+import CategoryProducts from './Pages/CategoryProducts'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoutes from './auth/ProtectedRoutes';
+import { useState } from 'react';
+import UserContextProvider from './context/User';
 
 function App() {
+ 
   const router = createBrowserRouter([
     {
       path: "/",
-      element:<Root/>,
+      element:<Root />,
       children:[
         {
           path: "/",
-      element:<Home/>
+      element:<Home />
         },
         {
           path: "/products",
-      element:<Product/>
+      element:
+        <Products/>
+      
         },
         {
-          path: "/categories",
-      element:<Categories/>
+          path: "/categories/:id",
+      element:<CategoryProducts/>
         },
         {
           path: "/cart",
-      element:<Cart/>
+      element:<ProtectedRoutes>
+        <Cart/>
+      </ProtectedRoutes>
         },
         {
           path: "/signin",
@@ -54,7 +63,10 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+    <UserContextProvider>
+    <RouterProvider router={router} />
+    </UserContextProvider>
+     
       <ToastContainer />
     </>
   );
